@@ -1,7 +1,9 @@
-function Card(){
+function Card({title, id, list}){
     return(
-        <div className="card"></div>
+        <div className="card">
+            <p>{title}</p>
+        </div>
     )
 }
 
-export default Card
+export default Card;

@@ -4,7 +4,7 @@ import Card from "./Card";
 
 function List({title, list, cards, setCards}){
     const [active, setActive] = useState(false);
-    const filteredCards = cards.filter((card) => card.list === list);
+    const filteredCards = cards.filter((c) => c.list === list);
     return(
         <div className="list-container">
             <div className="list-title-container">
@@ -13,7 +13,7 @@ function List({title, list, cards, setCards}){
             </div>
             <div className={`cards-container ${active ? "list-active" : "list-inactive"}`}>
                 {filteredCards.map((c) =>{
-                    <Card  key={c.id}{...c}/>;
+                   return <Card  key={c.id}{...c}/>;
                 })}
 
             </div>

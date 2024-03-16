@@ -20,7 +20,7 @@ function Board(){
            />
            <List
             title="Complete"
-            list="Complete"
+            list="complete"
             cards={cards}
             setCards={setCards}
            />

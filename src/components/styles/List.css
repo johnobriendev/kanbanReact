@@ -1,0 +1,17 @@
+.list-container{
+    border: solid black 1px;
+    width: 250px;
+    flex-shrink: 0;
+}
+.list-title-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.cards-container{
+    width:100%;
+    height: auto;
+}
+.list-active{
+    background-color: rgb(120, 120, 120)
+}
