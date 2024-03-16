@@ -1,6 +1,8 @@
+import "./styles/Card.css"
+
 function Card({title, id, list}){
     return(
-        <div className="card">
+        <div draggable="true" className="card">
             <p>{title}</p>
         </div>
     )

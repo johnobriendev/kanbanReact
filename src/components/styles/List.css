@@ -1,16 +1,18 @@
 .list-container{
-    border: solid black 1px;
-    width: 250px;
+    width: 350px;
     flex-shrink: 0;
+    padding: 10px;
 }
 .list-title-container{
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 10px;
 }
 .cards-container{
     width:100%;
     height: auto;
+    padding: 10px;
 }
 .list-active{
     background-color: rgb(120, 120, 120)
