@@ -9,7 +9,7 @@ function List(title, list, cards, setCards){
                 <h3>{title}</h3>
                 <span>{cards.length}</span>
             </div>
-            <div className="cards-container">
+            <div className={`cards-container ${active ? "list-active" : "list-inactive"}`}>
 
             </div>
 

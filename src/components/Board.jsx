@@ -3,7 +3,7 @@ import './styles/Board.css';
 import List from "./List";
 
 function Board(){
-    const [cards, setCards] = useState([]);
+    const [cards, setCards] = useState(exampleCards);
     return(
         <div className="board">
            <List
@@ -29,3 +29,12 @@ function Board(){
 } 
 
 export default Board
+
+const exampleCards = [
+    {title: "Work on Project", id: "1", list: "backlog"},
+    {title: "Buy food", id: "2", list: "backlog"},
+    {title: "Exercise", id: "3", list: "inProgress"},
+    {title: "Water the plants", id: "4", list: "inProgress"},
+    {title: "Wash the car", id: "5", list: "complete"},
+    {title: "Fix broken component", id: "6", list: "complete"},    
+]
