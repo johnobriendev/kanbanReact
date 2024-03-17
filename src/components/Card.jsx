@@ -7,7 +7,7 @@ import { useState } from "react";
 
 
 
-function Card({title, id, list, handleDeleteCard}){
+function Card({title, id, list, handleDeleteCard, handleDragStart}){
     const [isEditing, setIsEditing] = useState(false);
     const [cardTitle, setCardTitle] = useState(title);
 
@@ -31,7 +31,10 @@ function Card({title, id, list, handleDeleteCard}){
                     autoFocus
                     />
                 ) : ( 
-                    <div draggable="true" className="card">
+                    <div draggable="true"
+                     className="card"
+                     onDragStart={(e) => handleDragStart(e,{title, id, list})}
+                    >
                         <p onClick={() => setIsEditing(true)}>{cardTitle}</p>
                     </div>
                )}
