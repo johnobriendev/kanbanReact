@@ -2,8 +2,8 @@
     width: 100%;
     height: auto;
     padding: 10px;
-    margin-bottom: 5px;
     background-color: rgb(55, 55, 55);
+    border: solid .5px rgb(150, 150, 150);
     border-radius: 5px;
     cursor: grab;
 }

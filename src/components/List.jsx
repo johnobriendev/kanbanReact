@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "./styles/List.css";
 import Card from "./Card";
+import Dropline from "./Dropline";
 
 function List({title, list, cards, setCards}){
     const [active, setActive] = useState(false);
@@ -15,7 +16,7 @@ function List({title, list, cards, setCards}){
                 {filteredCards.map((c) =>{
                    return <Card  key={c.id}{...c}/>;
                 })}
-
+                <Dropline beforeId={-1} list={list}/>
             </div>
 
         </div>
