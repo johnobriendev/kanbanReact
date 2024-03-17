@@ -17,6 +17,7 @@ function AddCard({list, setCards}) {
 
         setCards((pv) => [...pv, newCard]);
         setAdding(false);
+        setText('');
     }
 
     return(
