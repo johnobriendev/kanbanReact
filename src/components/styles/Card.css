@@ -5,5 +5,15 @@
     background-color: rgb(55, 55, 55);
     border: solid .5px rgb(150, 150, 150);
     border-radius: 5px;
-    cursor: grab;
+    cursor: pointer;
+}
+.card-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+.delete-btn:hover{
+    color: rgb(250, 250, 250);
+    cursor: pointer;
 }

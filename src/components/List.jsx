@@ -7,6 +7,13 @@ import AddCard from "./AddCard";
 function List({title, list, cards, setCards}){
     const [active, setActive] = useState(false);
     const filteredCards = cards.filter((c) => c.list === list);
+    
+    const handleDeleteCard = (id) =>{
+        console.log("handleDeleteCard");
+        const deletedCardId = id;
+        setCards((prev) => prev.filter((c) => c.id !== deletedCardId));
+    }
+    
     return(
         <div className="list-container">
             <div className="list-title-container">
@@ -15,7 +22,7 @@ function List({title, list, cards, setCards}){
             </div>
             <div className={`cards-container ${active ? "list-active" : "list-inactive"}`}>
                 {filteredCards.map((c) =>{
-                   return <Card  key={c.id}{...c}/>;
+                   return <Card  key={c.id}{...c} />;
                 })}
                 <Dropline beforeId={-1} list={list}/>
                 <AddCard list={list} setCards={setCards}/>
