@@ -1,4 +1,5 @@
 import { useState } from "react"
+import "./styles/AddCard.css"
 
 function AddCard() {
     const [text, setText] = useState('');
@@ -9,7 +10,7 @@ function AddCard() {
         {adding ? ( 
             <></>
         ) : (
-            <button onClick={() => setAdding(true)}>
+            <button className="add-card-btn" onClick={() => setAdding(true)}>
                 <span>Add Card</span>
                 <span>+</span>
             </button>

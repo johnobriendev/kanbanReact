@@ -1,0 +1,11 @@
+.add-card-btn{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    height: auto;
+    padding: 10px;
+    background-color: rgb(35, 35, 35);
+    color: rgb(180, 180, 180);
+    border-style: none;
+}
