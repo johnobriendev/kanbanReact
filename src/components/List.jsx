@@ -22,6 +22,16 @@ function List({title, list, cards, setCards}){
         e.dataTransfer.setData("cardId", card.id);
     }
 
+    const handleDragOver = (e) => {
+        e.preventDefault();
+        setActive(true);
+    }
+    const handleDragLeave = (e) => {
+        setActive(false);
+    }
+    const handleDragEnd = (e) => {
+        setActive(false);
+    }
   
     
     return(
@@ -30,7 +40,11 @@ function List({title, list, cards, setCards}){
                 <h3>{title}</h3>
                 <span>{filteredCards.length}</span>
             </div>
-            <div className={`cards-container ${active ? "list-active" : "list-inactive"}`}>
+            <div
+            onDragOver={handleDragOver}
+            onDragLeave={handleDragLeave}
+            onDrop={handleDragEnd}
+            className={`cards-container ${active ? "list-active" : "list-inactive"}`}>
                 {filteredCards.map((c) =>{
                    return <Card  
                    key={c.uniqueId}{...c} 
