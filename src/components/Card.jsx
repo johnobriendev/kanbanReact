@@ -27,7 +27,7 @@ function Card({title, id, list, handleDeleteCard}){
                     value={cardTitle} 
                     onChange={handleTitleChange} 
                     onBlur={() => setIsEditing(false)} 
-                    className="card"
+                    className="card-editing"
                     autoFocus
                     />
                 ) : ( 
