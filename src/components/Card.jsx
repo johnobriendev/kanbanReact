@@ -7,6 +7,8 @@ import { IconContext } from "react-icons";
 
 
 function Card({title, id, list, handleDeleteCard}){
+    const [isEditing, setIsEditing] = useState(false);
+    const [cardTitle, setCardTitle] = useState(title);
     
     const handleClickDelete = () => handleDeleteCard(id);
     
