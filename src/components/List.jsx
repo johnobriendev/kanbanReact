@@ -3,16 +3,20 @@ import "./styles/List.css";
 import Card from "./Card";
 import Dropline from "./Dropline";
 import AddCard from "./AddCard";
+import { v4 as uuidv4 } from 'uuid';
+
 
 function List({title, list, cards, setCards}){
     const [active, setActive] = useState(false);
-    const filteredCards = cards.filter((c) => c.list === list);
+    const filteredCards = cards.filter((c) => c.list === list).map((c) => ({ ...c, uniqueId: generateUniqueId() }));
     
-    const handleDeleteCard = (id) =>{
-        console.log("handleDeleteCard");
-        const deletedCardId = id;
-        setCards((prev) => prev.filter((c) => c.id !== deletedCardId));
+    const handleDeleteCard = (cardId) =>{
+        setCards((prev) => prev.filter((c) => c.id !== cardId));
     }
+
+    function generateUniqueId() {
+        return uuidv4();
+      }
     
     return(
         <div className="list-container">
@@ -22,7 +26,7 @@ function List({title, list, cards, setCards}){
             </div>
             <div className={`cards-container ${active ? "list-active" : "list-inactive"}`}>
                 {filteredCards.map((c) =>{
-                   return <Card  key={c.id}{...c} />;
+                   return <Card  key={c.uniqueId}{...c} handleDeleteCard={handleDeleteCard} />;
                 })}
                 <Dropline beforeId={-1} list={list}/>
                 <AddCard list={list} setCards={setCards}/>

@@ -6,7 +6,10 @@ import { IconContext } from "react-icons";
 
 
 
-function Card({title, id, list,}){
+function Card({title, id, list, handleDeleteCard}){
+    
+    const handleClickDelete = () => handleDeleteCard(id);
+    
     return(
         <>
             <Dropline beforeId={id} list={list}/>
@@ -14,17 +17,13 @@ function Card({title, id, list,}){
                 <div draggable="true" className="card">
                     <p>{title}</p>
                 </div>
-                <button className="delete-card-btn">
+                <button onClick={handleClickDelete} className="delete-card-btn">
                     <IconContext.Provider value={{ className: "delete-btn" }}>
                     <RiDeleteBin5Line />
                     </IconContext.Provider>
-                </button>
-                
+                </button> 
             </div>
-        
-        
-        </>
-        
+        </>  
     )
 }
 
