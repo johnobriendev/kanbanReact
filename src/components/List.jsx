@@ -29,16 +29,23 @@ function List({title, list, cards, setCards}){
     const lineIndicator = (e) =>{
         const indicators = getIndicators();
         const el = getNearestIndicator(e, indicators);
+        clearLines(indicators);
         el.element.style.opacity = "1";
     }
+    const clearLines = (els) => {
+        const indicators = els || getIndicators();
+        indicators.forEach((indicator) => {
+            indicator.style.opacity = "0";
+        })
+    }
     const getNearestIndicator = (e, indicators) => {
-        const DISTANCE_OFFSET = 50;
+        const DISTANCE_OFFSET = 50; //use this so we can hover above the top card
 
         const el = indicators.reduce(
           (closest, child) => {
-            const box = child.getBoundingClientRect();
+            const box = child.getBoundingClientRect(); //gives position of indicators
     
-            const offset = e.clientY - (box.top + DISTANCE_OFFSET);
+            const offset = e.clientY - (box.top + DISTANCE_OFFSET); //distance between mouse and top of indicator
     
             if (offset < 0 && offset > closest.offset) {
               return { offset: offset, element: child };
@@ -59,9 +66,11 @@ function List({title, list, cards, setCards}){
     }
     const handleDragLeave = (e) => {
         setActive(false);
+        clearLines();
     }
     const handleDragEnd = (e) => {
         setActive(false);
+        clearLines();
     }
   
     
