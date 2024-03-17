@@ -13,7 +13,13 @@
     align-items: center;
     gap: 10px;
 }
-.delete-btn:hover{
+.delete-card-btn{
+    position: relative;
+    left: 10px;
+    border-style: none;
+    background-color: ;
+}
+.delete-card-btn:hover{
     color: rgb(250, 250, 250);
     cursor: pointer;
 }

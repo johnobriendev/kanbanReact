@@ -17,11 +17,11 @@ function Card({title, id, list, handleDeleteCard}){
                 <div draggable="true" className="card">
                     <p>{title}</p>
                 </div>
-                <button onClick={handleClickDelete} className="delete-card-btn">
-                    <IconContext.Provider value={{ className: "delete-btn" }}>
-                    <RiDeleteBin5Line />
+    
+                    <IconContext.Provider value={{ className: "delete-icon" }}>
+                    <RiDeleteBin5Line onClick={handleClickDelete} />
                     </IconContext.Provider>
-                </button> 
+               
             </div>
         </>  
     )
