@@ -6,6 +6,7 @@
     border: solid .5px rgb(150, 150, 150);
     border-radius: 5px;
     cursor: pointer;
+    color: rgb(180, 180, 180)
 }
 .card-container{
     display: flex;
