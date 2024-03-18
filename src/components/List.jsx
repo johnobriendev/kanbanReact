@@ -71,6 +71,32 @@ function List({title, list, cards, setCards}){
     const handleDragEnd = (e) => {
         setActive(false);
         clearLines();
+
+        const cardId = e.dataTransfer.getData("cardId");
+        const indicators = getIndicators();
+        const {element} = getNearestIndicator(e, indicators);
+
+        const before = element.dataset.before || "-1";
+
+        if(before !== cardId){
+            let copy = [...cards];
+            let transferredCard = copy.find((card) => card.id === cardId)
+
+            transferredCard = {...transferredCard, list};
+            copy = copy.filter((card) => card.id !== cardId);
+
+            const moveToEnd = before === "-1";
+
+            if(moveToEnd){
+                copy.push(transferredCard);
+            }else{
+                const insertAtIndex = copy.findIndex((el) => el.id === before);
+                copy.splice(insertAtIndex, 0, transferredCard);
+            }
+            setCards(copy);
+        }
+
+
     }
   
     
