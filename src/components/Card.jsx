@@ -7,7 +7,7 @@ import { useState } from "react";
 
 
 
-function Card({title, id, list, handleDeleteCard, handleDragStart}){
+function Card({title, id, list, handleDeleteCard, handleDragStart, cards, setCards}){
     const [isEditing, setIsEditing] = useState(false);
     const [cardTitle, setCardTitle] = useState(title);
 
@@ -16,7 +16,15 @@ function Card({title, id, list, handleDeleteCard, handleDragStart}){
     const handleTitleChange = (e) => {
         setCardTitle(e.target.value);
       };
-    
+    const handleBlur = () => {
+        setIsEditing(false);
+        // Update cards state on blur if title has changed
+        if (cardTitle !== title) {
+            const updatedCards = cards.map((card) => (card.id === id ? { ...card, title: cardTitle } : card));
+            setCards(updatedCards); // Update cards state directly
+        }
+    };
+
     return(
         <>
             <Dropline beforeId={id} list={list}/>
@@ -26,7 +34,7 @@ function Card({title, id, list, handleDeleteCard, handleDragStart}){
                     type="text"
                     value={cardTitle} 
                     onChange={handleTitleChange} 
-                    onBlur={() => setIsEditing(false)} 
+                    onBlur={handleBlur} 
                     className="card-editing"
                     autoFocus
                     />

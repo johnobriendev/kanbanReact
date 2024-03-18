@@ -116,6 +116,8 @@ function List({title, list, cards, setCards}){
                    key={c.uniqueId}{...c} 
                    handleDeleteCard={handleDeleteCard}
                    handleDragStart={handleDragStart} 
+                   cards={cards} 
+                   setCards={setCards} 
                     />;
                 })}
                 <Dropline beforeId={-1} list={list}/>
