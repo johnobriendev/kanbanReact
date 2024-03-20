@@ -36,9 +36,10 @@ function AddCard({list, setCards}) {
                     placeholder="Add a new card"
                     className="add-card-textarea"
                     onKeyDown={handleKeyDown}
+                    onBlur={(e) => setAdding(false)}
                 >
                 </textarea>
-                <div>
+                <div className="btn-container">
                     <button onClick={(e) => setAdding(false)}  className="close-textarea">Close</button>
                     <button type="submit" className="add-textarea">Add +</button>
                 </div>

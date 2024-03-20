@@ -17,7 +17,7 @@
     width: 92%;
     height: auto;
     padding: 10px;
-    background-color: rgb(55, 55, 55);
+    background-color: rgb(85, 85, 85);
     color: rgb(180, 180, 180);
     border: solid .5px rgb(150, 150, 150);
     border-radius: 5px;
@@ -28,5 +28,20 @@
 }
 
 textarea:focus{
-    outline: none;
+    outline: solid rgb(200, 200, 200);
+   
+}
+
+.btn-container{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+    margin-top: 5px;
+}
+.close-textarea{
+    width: 50px;
+}
+.add-textarea{
+    width: 50px;
 }
