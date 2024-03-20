@@ -20,6 +20,12 @@ function AddCard({list, setCards}) {
         setText('');
     }
 
+    const handleKeyDown = (e) => {
+        if (adding && e.key === "Enter" && !e.shiftKey) {
+          handleAddCard(e); // Call submit function on Enter key press only in "adding" mode
+        }
+      };
+
     return(
         <>
         {adding ? ( 
@@ -29,6 +35,7 @@ function AddCard({list, setCards}) {
                     autoFocus
                     placeholder="Add a new card"
                     className="add-card-textarea"
+                    onKeyDown={handleKeyDown}
                 >
                 </textarea>
                 <div>
