@@ -24,7 +24,11 @@ function Card({title, id, list, handleDeleteCard, handleDragStart, cards, setCar
             setCards(updatedCards); // Update cards state directly
         }
     };
-
+    const handleKeyDown = (e) => {
+        if (isEditing && e.key === "Enter" && !e.shiftKey) {
+          handleBlur(e); 
+        }
+      };
     return(
         <>
             <Dropline beforeId={id} list={list}/>
@@ -37,6 +41,7 @@ function Card({title, id, list, handleDeleteCard, handleDragStart, cards, setCar
                     onBlur={handleBlur} 
                     className="card-editing"
                     autoFocus
+                    onKeyDown={handleKeyDown}
                     />
                 ) : ( 
                     <div draggable="true"
