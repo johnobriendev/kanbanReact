@@ -3,7 +3,7 @@ import './styles/Board.css';
 import List from "./List";
 
 function Board(){
-    const [cards, setCards] = useState([exampleCards]);
+    const [cards, setCards] = useState([]);
     const [checkLocalStorage, setCheckLocalStorage] = useState(false);
 
     useEffect(() => {
@@ -13,7 +13,7 @@ function Board(){
     useEffect(() => {
         const data = localStorage.getItem("cards");
 
-        setCards(data ? JSON.parse(data) : []);
+        setCards(data ? JSON.parse(data) : [exampleCards]);
 
         setCheckLocalStorage(true);
     } , [])
