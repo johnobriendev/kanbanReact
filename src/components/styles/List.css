@@ -15,5 +15,6 @@
     padding: 10px;
 }
 .list-active{
-    background-color: rgb(120, 120, 120)
+    background-color: rgb(80, 80, 80);
+    border-radius: 5px;
 }
