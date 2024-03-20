@@ -3,7 +3,7 @@ import './styles/Board.css';
 import List from "./List";
 
 function Board(){
-    const [cards, setCards] = useState([]);
+    const [cards, setCards] = useState([exampleCards]);
     const [checkLocalStorage, setCheckLocalStorage] = useState(false);
 
     useEffect(() => {
