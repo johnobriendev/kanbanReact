@@ -1,9 +1,23 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import './styles/Board.css';
 import List from "./List";
 
 function Board(){
-    const [cards, setCards] = useState(exampleCards);
+    const [cards, setCards] = useState([]);
+    const [checkLocalStorage, setCheckLocalStorage] = useState(false);
+
+    useEffect(() => {
+        checkLocalStorage && localStorage.setItem("cards", JSON.stringify(cards));
+    } , [cards]);
+
+    useEffect(() => {
+        const data = localStorage.getItem("cards");
+
+        setCards(data ? JSON.parse(data) : []);
+
+        setCheckLocalStorage(true);
+    } , [])
+    
     return(
         <div className="board">
            <List
