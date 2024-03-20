@@ -1,6 +1,6 @@
 .dropline{
-    height:2px;
+    height:5px;
     width: 100%;
-    background-color: pink;
+    background-color: rgb(220, 220, 220);
     opacity: 0;
 }
