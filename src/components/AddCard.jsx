@@ -22,7 +22,8 @@ function AddCard({list, setCards}) {
 
     const handleKeyDown = (e) => {
         if (adding && e.key === "Enter" && !e.shiftKey) {
-          handleAddCard(e); // Call submit function on Enter key press only in "adding" mode
+            //e.preventDefault();
+            handleAddCard(e); // Call submit function on Enter key press only in "adding" mode
         }
       };
 
@@ -36,7 +37,8 @@ function AddCard({list, setCards}) {
                     placeholder="Add a new card"
                     className="add-card-textarea"
                     onKeyDown={handleKeyDown}
-                    onBlur={(e) => setAdding(false)}
+                    //onBlur={(e) => setAdding(false)}
+                    onBlur={(e) => !e.submitter ? setAdding(false) : null}
                 >
                 </textarea>
                 <div className="btn-container">

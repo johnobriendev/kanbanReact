@@ -13,7 +13,7 @@ function Board(){
     useEffect(() => {
         const data = localStorage.getItem("cards");
 
-        setCards(data ? JSON.parse(data) : [exampleCards]);
+        setCards(data ? JSON.parse(data) : []);
 
         setCheckLocalStorage(true);
     } , [])
