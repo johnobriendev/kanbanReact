@@ -1,8 +1,6 @@
-# React + Vite
+# Kanban/Issue Tracker with React
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A kanban board that I built with React to use for error tracking. Has click to edit functionality and full drag and drop ability. For now there is local storage built in but I plan to build a back end for it with Node.
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+[Live Demo](https://johns-kanban.netlify.app/)
