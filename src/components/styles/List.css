@@ -9,6 +9,10 @@
     align-items: center;
     padding: 10px;
 }
+.list-title-container h3{
+    font-weight: 300;
+    font-size: 1.75rem;
+}
 .cards-container{
     width:100%;
     height: auto;

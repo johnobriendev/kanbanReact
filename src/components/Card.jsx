@@ -5,8 +5,6 @@ import { IconContext } from "react-icons";
 import { useState } from "react";
 
 
-
-
 function Card({title, id, list, handleDeleteCard, handleDragStart, cards, setCards}){
     const [isEditing, setIsEditing] = useState(false);
     const [cardTitle, setCardTitle] = useState(title);
@@ -34,13 +32,14 @@ function Card({title, id, list, handleDeleteCard, handleDragStart, cards, setCar
             <Dropline beforeId={id} list={list}/>
             <div className="card-container">
                 {isEditing ? (
-                    <input
-                    type="text"
+                    <textarea
+                    
                     value={cardTitle} 
                     onChange={handleTitleChange} 
                     onBlur={handleBlur} 
                     className="card-editing"
-                    autoFocus
+                    autoFocus //add onfocus so cursor goes to end of text area on focus
+                    onFocus={(e)=>e.currentTarget.setSelectionRange(e.currentTarget.value.length, e.currentTarget.value.length)}
                     onKeyDown={handleKeyDown}
                     />
                 ) : ( 
