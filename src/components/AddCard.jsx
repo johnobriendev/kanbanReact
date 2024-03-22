@@ -1,9 +1,12 @@
 import { useState } from "react"
 import "./styles/AddCard.css"
+import { useEffect } from "react";
+import { useRef } from "react";
 
 function AddCard({list, setCards}) {
     const [text, setText] = useState('');
     const [adding, setAdding] = useState(false);
+    const textAreaRef = useRef(null); 
 
     const handleAddCard = (e) => {
         e.preventDefault();
@@ -27,7 +30,21 @@ function AddCard({list, setCards}) {
         }
       };
 
-    return(
+    const handleClickOutside = (event) => {
+        if (textAreaRef.current && !textAreaRef.current.contains(event.target) && 
+            !(event.target.classList.contains("close-textarea") || 
+                event.target.classList.contains("add-textarea") || 
+                event.target.classList.contains("add-card-btn"))) {
+            setAdding(false);
+        }
+    };
+
+    useEffect(() => {
+        document.addEventListener("click", handleClickOutside); // Add event listener on component mount
+        return () => document.removeEventListener("click", handleClickOutside); // Remove on unmount
+    }, []); // Empty dependency array to run only once
+
+return(
         <>
         {adding ? ( 
             <form onSubmit={handleAddCard}>
@@ -37,8 +54,9 @@ function AddCard({list, setCards}) {
                     placeholder="Add a new card"
                     className="add-card-textarea"
                     onKeyDown={handleKeyDown}
+                    ref={textAreaRef}
                     //onBlur={(e) => setAdding(false)}
-                    onBlur={(e) => !e.submitter ? setAdding(false) : null}
+                    //onBlur={(e) => !e.submitter ? setAdding(false) : null}
                 >
                 </textarea>
                 <div className="btn-container">

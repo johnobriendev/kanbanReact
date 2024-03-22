@@ -21,6 +21,7 @@ function List({title, list, cards, setCards}){
     const handleDragStart = (e, card) =>{
         e.dataTransfer.setData("cardId", card.id);
     }
+    
     const handleDragOver = (e) => {
         e.preventDefault();
         lineIndicator(e);

@@ -11,6 +11,9 @@
 }
 .add-card-btn:hover{
     color: rgb(250, 250, 250);
+    border: rgb(200, 200, 200) solid 1px;
+    width: 92%;
+    border-radius: 5px;
 }
 
 .add-card-textarea{
@@ -45,3 +48,6 @@ textarea:focus{
 .add-textarea{
     width: 50px;
 }
+button span{
+    pointer-events: none;   /*this is so the add card text can trigger click event*/
+} 
