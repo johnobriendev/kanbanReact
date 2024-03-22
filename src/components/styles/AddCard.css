@@ -5,7 +5,7 @@
     width: 100%;
     height: auto;
     padding: 10px;
-    background-color: rgb(35, 35, 35);
+    background-color: rgb(25, 25, 25);
     color: rgb(180, 180, 180);
     border-style: none;
 }
@@ -18,21 +18,25 @@
 
 .add-card-textarea{
     width: 92%;
-    height: auto;
+    height: 100px;
     padding: 10px;
-    background-color: rgb(85, 85, 85);
+    background-color: rgb(55, 55, 55);
     color: rgb(180, 180, 180);
     border: solid .5px rgb(150, 150, 150);
     border-radius: 5px;
     resize: none;
+    color: rgb(200, 200, 200);
+    font-size: 16px;
+    font-weight: 300;
 }
 .add-card-textarea::placeholder{
-    color: rgb(180, 180, 180)
+    color: rgb(200, 200, 200);
+    font-size: 16px;
+    font-weight: 300;
 }
 
 textarea:focus{
-    outline: solid rgb(200, 200, 200);
-   
+    outline: solid 2px rgb(200, 200, 200);
 }
 
 .btn-container{
