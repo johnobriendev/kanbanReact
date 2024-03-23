@@ -1,5 +1,6 @@
 .list-container{
     width: 350px;
+    max-height: 80%;
     flex-shrink: 0;
     padding: 10px;
 }
@@ -15,7 +16,6 @@
 }
 .cards-container{
     width:100%;
-    height: auto;
     padding: 10px;
 }
 .list-active{
