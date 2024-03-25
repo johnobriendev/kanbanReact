@@ -18,9 +18,11 @@ function AddCard({list, setCards}) {
             id: Math.random().toString(),
         }
 
+        
         setCards((pv) => [...pv, newCard]);
-        setAdding(false);
+        //setAddiing(false);
         setText('');
+        
     }
 
     const handleKeyDown = (e) => {
@@ -49,6 +51,7 @@ return(
         {adding ? ( 
             <form onSubmit={handleAddCard}>
                 <textarea
+                    value={text} //set this so that textarea clears after card is submitted but window stays open
                     onChange={(e) =>  setText(e.target.value)}
                     autoFocus
                     placeholder="Add a new card"
