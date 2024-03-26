@@ -9,7 +9,9 @@ import { v4 as uuidv4 } from 'uuid';
 function List({title, list, cards, setCards}){
     const [active, setActive] = useState(false);
     const filteredCards = cards.filter((c) => c.list === list).map((c) => ({ ...c, uniqueId: generateUniqueId() }));
-    
+    // const [openAddCardId, setOpenAddCardId] = useState(null); //to have only one addcard open
+
+
     function generateUniqueId() {
         return uuidv4();
     }
@@ -122,7 +124,7 @@ function List({title, list, cards, setCards}){
                     />;
                 })}
                 <Dropline beforeId={-1} list={list}/>
-                <AddCard list={list} setCards={setCards}/>
+                <AddCard list={list} setCards={setCards} /> 
             </div>
 
         </div>

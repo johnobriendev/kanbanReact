@@ -2,11 +2,13 @@ import { useState } from "react"
 import "./styles/AddCard.css"
 import { useEffect } from "react";
 import { useRef } from "react";
+import { useId } from 'react';
 
 function AddCard({list, setCards}) {
     const [text, setText] = useState('');
     const [adding, setAdding] = useState(false);
     const textAreaRef = useRef(null); 
+    const formId = useId(); 
 
     const handleAddCard = (e) => {
         e.preventDefault();
@@ -31,7 +33,7 @@ function AddCard({list, setCards}) {
             handleAddCard(e); // Call submit function on Enter key press only in "adding" mode
         }
       };
-
+   
     const handleClickOutside = (event) => {
         if (textAreaRef.current && !textAreaRef.current.contains(event.target) && 
             !(event.target.classList.contains("close-textarea") || 
@@ -40,7 +42,17 @@ function AddCard({list, setCards}) {
             setAdding(false);
         }
     };
-
+    
+    // const handleClickOutside = (event) => {
+    //     if (textAreaRef.current && !textAreaRef.current.contains(event.target) && 
+    //         !((event.target.classList.contains("close-textarea") && event.target.id === formId) || 
+    //           (event.target.classList.contains("add-textarea") && event.target.id === formId)|| 
+    //           (event.target.classList.contains("add-card-btn") && event.target.id === formId))) {
+    //         setAdding(false);
+    //     } 
+    // };
+    
+        
     useEffect(() => {
         document.addEventListener("click", handleClickOutside); // Add event listener on component mount
         return () => document.removeEventListener("click", handleClickOutside); // Remove on unmount
@@ -49,7 +61,7 @@ function AddCard({list, setCards}) {
 return(
         <>
         {adding ? ( 
-            <form onSubmit={handleAddCard}>
+            <form onSubmit={handleAddCard} id={formId}>
                 <textarea
                     value={text} //set this so that textarea clears after card is submitted but window stays open
                     onChange={(e) =>  setText(e.target.value)}
@@ -68,7 +80,10 @@ return(
                 </div>
             </form>
         ) : (
-            <button className="add-card-btn" onClick={() => setAdding(true)}>
+            <button className="add-card-btn" onClick={() => {
+                setAdding(true)
+                setOpenAddCardId(list.id);
+                }}>
                 <span>Add Card</span>
                 <span>+</span>
             </button>
