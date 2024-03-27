@@ -4,10 +4,18 @@ import List from "./List";
 
 function Board(){
     const [cards, setCards] = useState([]);
+    // useEffect(() => {
+    //     const data = localStorage.getItem("cards");
+    
+    //     setCards(data ? JSON.parse(data) : exampleCards); // Use exampleCards if no data in localStorage
+    // }, []);
+
     useEffect(() => {
         const data = localStorage.getItem("cards");
     
-        setCards(data ? JSON.parse(data) : exampleCards); // Use exampleCards if no data in localStorage
+        // Check for empty data (including empty array)
+        const parsedData = data ? JSON.parse(data) : []; // Default to empty array
+        setCards(parsedData.length === 0 ? [...exampleCards] : parsedData);
     }, []);
     
     useEffect(() => {
