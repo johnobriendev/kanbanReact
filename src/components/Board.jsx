@@ -7,7 +7,7 @@ function Board(){
     useEffect(() => {
         const data = localStorage.getItem("cards");
     
-        setCards(data ? JSON.parse(data) : exampleCards); // Use exampleCards if no data in localStorage
+        setCards(data!=='' ? JSON.parse(data) : exampleCards); // Use exampleCards if no data in localStorage
     }, []);
     
     useEffect(() => {
