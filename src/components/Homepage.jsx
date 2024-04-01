@@ -4,6 +4,14 @@ function HomePage () {
     const [boards, setBoards] = useState('');
     const [newBoardTitle, setNewBoardTitle] = useState('');
 
+    const handleCreateBoard = () => {
+        setBoards([...boards, {
+          title: newBoardTitle,
+          cards: [],
+        }]);
+        setNewBoardTitle('');
+    };
+
     return (
         <div>
             <h1>Kanban Board</h1>
