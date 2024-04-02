@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from "react";
 import {Link} from 'react-router-dom';
 import './styles/Homepage.css'
+import Board from "./Board";
 
 function HomePage () {
     const [boards, setBoards] = useState(JSON.parse(localStorage.getItem('boards')) ||[]);
