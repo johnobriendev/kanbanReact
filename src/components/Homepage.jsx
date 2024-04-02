@@ -3,9 +3,21 @@ import {Link} from 'react-router-dom';
 import './styles/Homepage.css'
 import Board from "./Board";
 
+
+
 function HomePage () {
     const [boards, setBoards] = useState(JSON.parse(localStorage.getItem('boards')) ||[]);
     const [newBoardTitle, setNewBoardTitle] = useState('');
+
+        // Check for empty boards on load
+    useEffect(() => {
+        if (boards.length === 0) {
+        // Add example board to localStorage if boards is empty
+        setBoards([...boards, exampleBoard]);
+        localStorage.setItem("boards", JSON.stringify([...boards, exampleBoard]));
+        }
+    }, []);
+
 
     useEffect(() => {
         localStorage.setItem('boards', JSON.stringify(boards));
@@ -15,7 +27,7 @@ function HomePage () {
         setBoards([...boards, {
           title: newBoardTitle,
           id: Math.random().toString(),
-          cards: [],
+          cards: exampleCards,
         }]);
         setNewBoardTitle('');
     };
@@ -65,4 +77,9 @@ const exampleCards = [
     {title: "Water the plants", id: "4", list: "inProgress"},
     {title: "Wash the car", id: "5", list: "complete"},
     {title: "Fix broken component", id: "6", list: "complete"},    
-]
+];
+const exampleBoard = {
+    title: "My Example Board",
+    id: "example-board",
+    cards: exampleCards,
+};

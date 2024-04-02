@@ -2,7 +2,10 @@ import { useEffect, useState } from "react";
 import './styles/Board.css';
 import List from "./List";
 
-function Board({ match }) {
+function Board({match}) {
+    console.log("this is a test")
+    console.log(match);
+    
     const [boardData, setBoardData] = useState(null);
   
     useEffect(() => {
