@@ -11,7 +11,6 @@ function List({title, list, cards, setCards}){
     const filteredCards = cards.filter((c) => c.list === list).map((c) => ({ ...c, uniqueId: generateUniqueId() }));
     // const [openAddCardId, setOpenAddCardId] = useState(null); //to have only one addcard open
 
-
     function generateUniqueId() {
         return uuidv4();
     }

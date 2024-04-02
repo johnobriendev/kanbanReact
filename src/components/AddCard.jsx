@@ -4,7 +4,7 @@ import { useEffect } from "react";
 import { useRef } from "react";
 import { useId } from 'react';
 
-function AddCard({list, setCards}) {
+function AddCard({list, setCards, boardId}) {
     const [text, setText] = useState('');
     const [adding, setAdding] = useState(false);
     const textAreaRef = useRef(null); 
@@ -15,6 +15,7 @@ function AddCard({list, setCards}) {
         if (!text.trim().length) return;
 
         const newCard = {
+            boardId,
             list,
             title : text.trim(),
             id: Math.random().toString(),
@@ -82,7 +83,7 @@ return(
         ) : (
             <button className="add-card-btn" onClick={() => {
                 setAdding(true)
-                setOpenAddCardId(list.id);
+                //setOpenAddCardId(list.id);
                 }}>
                 <span>Add Card</span>
                 <span>+</span>
